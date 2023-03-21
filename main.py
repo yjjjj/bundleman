@@ -34,6 +34,8 @@ class MainWindow(QMainWindow):
 
         # Show settings
         self.ui.settings_btn.clicked.connect(self.show_settings)
+
+        self.toggle_button()
         
         # EXIBE A APLICAÇÂO
         self.show()
