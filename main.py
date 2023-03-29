@@ -14,7 +14,7 @@ from gui.windows.main_window.ui_main_window import *
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("ASCADA")
+        self.setWindowTitle("bundleman")
 
         # SETUP MAIN WINDOW
         self.ui = UI_MainWindow()
