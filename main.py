@@ -5,11 +5,17 @@ import threading
 from turtle import width
 from qt_core import *
 
+
+# third_party = "{}/site-packages".format(os.environ["PLE_THIRDPARTY_PATH"])
+third_party = "V:/thirdparty/site-packages"
+if third_party not in sys.path:
+    sys.path.append(third_party)
+
+
 # IMPORT MAIN WINDOW
 from gui.windows.main_window.ui_main_window import *
 
 
-# test
 # MAIN WINDOW
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -29,9 +35,6 @@ class MainWindow(QMainWindow):
         self.ui.btn_3.clicked.connect(self.show_page_3)
         self.ui.btn_4.clicked.connect(self.show_page_4)
 
-        # Open file
-        self.ui.btn_5.clicked.connect(self.open_file)
-
         # Show settings
         self.ui.settings_btn.clicked.connect(self.show_settings)
 
@@ -46,7 +49,7 @@ class MainWindow(QMainWindow):
                 btn.set_active(False)
             except:
                 pass
-    
+
     def show_page_1(self):
         self.reset_selection()
         self.ui.pages.setCurrentWidget(self.ui.ui_page_1.page)
@@ -87,10 +90,6 @@ class MainWindow(QMainWindow):
         self.animation.setEndValue(width)
         self.animation.setDuration(150)
         self.animation.start()
-
-    def open_file(self):
-        file_name = QFileDialog.getOpenFileName(self, "Open_file")
-        print(file_name)
 
     def get_text(self):
         text = self.mw.text_edit.toPlainText()

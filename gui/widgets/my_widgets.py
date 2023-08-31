@@ -7,7 +7,7 @@ class MyWidgets(object):
 
     def leftHiddenMenu(self, parent=None):
         # LEFT HIDDEN MENU
-        #////////////////////////////////////////////////////////////////////
+        # ////////////////////////////////////////////////////////////////////
         # HIDDEN FRAME
         self.hidden_frame = QFrame(parent=parent)
         self.hidden_frame.setStyleSheet("background-color: transparent")
@@ -18,7 +18,7 @@ class MyWidgets(object):
 
         # HIDDEN FRAME LAYOUT
         self.hidden_layout = QHBoxLayout(self.hidden_frame)
-        self.hidden_layout.setContentsMargins(0,0,0,0)
+        self.hidden_layout.setContentsMargins(0, 0, 0, 0)
         self.hidden_layout.setSpacing(0)
 
         # HIDDEN MENU
@@ -37,20 +37,20 @@ class MyWidgets(object):
         self.hidden_btn = QPushButton(self.hidden_btn_frame)
         self.hidden_btn.setStyleSheet("background-color: transparent")
         self.hidden_btn.setFixedSize(3840, 3840)
-        
+
         # ADD HIDDEN BTN TO HIDDEN FRAME
         self.hidden_layout.addWidget(self.hidden_menu)
         self.hidden_layout.addWidget(self.hidden_btn_frame)
 
-    def textBox(self, 
-        parent=None, 
-        label_text="", 
-        btn_text="", 
-        size=QSize(500, 250),
-        text_box_color="#282a36"
-        ):
+    def textBox(self,
+                parent=None,
+                label_text="",
+                btn_text="",
+                size=QSize(500, 250),
+                text_box_color="#282a36"
+                ):
         # TEXT BOX
-        #////////////////////////////////////////////////////////////////////
+        # ////////////////////////////////////////////////////////////////////
         # TEXT BOX FRAME
         self.text_box_frame = QFrame(parent=parent)
         self.text_box_frame.setStyleSheet("background-color: #44475a; border-radius: 5")

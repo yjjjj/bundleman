@@ -13,10 +13,9 @@ from gui.pages.ui_settings import UI_application_settings
 from gui.widgets.py_push_button import PyPushButton
 import os
 
-# IMPORT PAGES
 
 # MAIN WINDOW
-class UI_MainWindow(object):
+class UI_MainWindow(QDialog):
     def __init__(self):
         self.current_path = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
         self.ico_path = os.path.join(self.current_path, "images", "icons")
@@ -31,6 +30,7 @@ class UI_MainWindow(object):
 
         # CREATE MAIN FRAME
         self.main_frame = QFrame()
+        self.main_frame.main_window = self.main_frame
 
         # CREATE MAIN LAYOUT
         self.main_layout = QHBoxLayout(self.main_frame)
