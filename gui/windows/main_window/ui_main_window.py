@@ -163,13 +163,13 @@ class UI_MainWindow(QDialog):
         self.toggle_btn_layout.addWidget(self.toggle_btn)
 
         # left label
-        self.top_left_label = QLabel("Maciel Viado")
+        self.top_left_label = QLabel("YJ")
 
         # spacer
         self.spacer = QSpacerItem(20, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         # right label
-        self.top_right_label = QLabel("Divices")
+        self.top_right_label = QLabel("Version Management")
         self.top_right_label.setStyleSheet("font: 700 9pt 'Segoe UI'")
 
         # add labels to top bar layout
@@ -185,12 +185,12 @@ class UI_MainWindow(QDialog):
         self.pages.resize(622, 515)
         self.ui_page_1 = UI_application_page_1()
         self.ui_page_1.setupUi(self.pages)
-        self.ui_page_2 = UI_application_page_2()
-        self.ui_page_2.setupUi(self.pages)
-        self.ui_page_3 = UI_application_page_3()
-        self.ui_page_3.setupUi(self.pages)
-        self.ui_page_4 = UI_application_page_4()
-        self.ui_page_4.setupUi(self.pages)
+        # self.ui_page_2 = UI_application_page_2()
+        # self.ui_page_2.setupUi(self.pages)
+        # self.ui_page_3 = UI_application_page_3()
+        # self.ui_page_3.setupUi(self.pages)
+        # self.ui_page_4 = UI_application_page_4()
+        # self.ui_page_4.setupUi(self.pages)
         self.ui_sttgs = UI_application_settings()
         self.ui_sttgs.setupUi(self.pages)
         self.pages.setCurrentWidget(self.ui_page_1.page)
@@ -204,13 +204,13 @@ class UI_MainWindow(QDialog):
         self.bottom_bar_layout.setContentsMargins(5, 0, 5, 0)
 
         # left label
-        self.bottom_left_label = QLabel("MBN Enterprises")
+        self.bottom_left_label = QLabel("YJ Enterprises")
 
         # spacer
         self.bottom_spacer = QSpacerItem(20, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         # right label
-        self.bottom_right_label = QLabel("© 2022")
+        self.bottom_right_label = QLabel("© 2023")
 
         # add labels to top bar layout
         self.bottom_bar_layout.addWidget(self.bottom_left_label)

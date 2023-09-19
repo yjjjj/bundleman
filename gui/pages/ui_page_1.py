@@ -22,13 +22,15 @@ PATH = Path(__file__).parent
 
 try:
     LIB = Path(os.environ["PLE_LIB_PATH"])
-    DBPATH = Path(os.environ["PLE_DIR"]).joinpath("PLE", "startup", "libdb")
+    LIB_BACKUP = Path(os.environ["PLE_DIR"]).joinpath("/PLE", "bundle")
+    DBPATH = Path(os.environ["PLE_DIR"]).joinpath("/PLE", "startup", "libdb")
 except:
     LIB = Path("V:/PLE-Lib")
+    LIB_BACKUP = Path("V:/PLE/bundle")
     DBPATH = Path("V:/PLE/startup/libdb")
 
-gl = gitlab.Gitlab(GIT_URL, private_token=PRIVATE_TOKEN)
 
+gl = gitlab.Gitlab(GIT_URL, private_token=PRIVATE_TOKEN)
 Groups = gl.groups.list(all=True)
 extension = gl.groups.list(search="extension")[0]
 
@@ -215,6 +217,7 @@ class UI_application_page_1(QWidget):
 
         current_group = gl.groups.get(self.project.group_id)
         self.path = LIB / current_group.name / self.project.name
+        self.path_backup = LIB_BACKUP / current_group.name
 
         if not self.path.exists():
             self.path.mkdir()
@@ -256,6 +259,7 @@ class UI_application_page_1(QWidget):
         # Clone Project
         update_lib_path = self.path / f"{self.project.name}_v{max_number}"
         gitclone.clone_project(self.project.name, GIT_URL, PRIVATE_TOKEN, update_lib_path.as_posix())
+        gitclone.clone_project(self.project.name, GIT_URL, PRIVATE_TOKEN, self.path_backup.as_posix())
 
         self.lib_number.setText(str(len(project_list)))
         self.lib_version_combo.addItems([x.split('_v')[-1] for x in sorted_project_list])

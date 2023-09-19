@@ -97,6 +97,10 @@ class MainWindow(QMainWindow):
 
 
 if __name__ == "__main__":
+    icon_path = os.path.join(os.path.dirname(__file__), "gui", "images")
+
     app = QApplication(sys.argv)
+    app.setWindowIcon(QIcon(f"{icon_path}/bundle.png"))
+
     window = MainWindow()
     sys.exit(app.exec())
